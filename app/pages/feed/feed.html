@@ -7,4 +7,12 @@
 <ion-content padding class="feed">
 
 	<button block round (click)="loadPics()">Load Feed</button>
+
+	<div *ngFor="let pic of loadedPics">
+
+		Longitude {{pic.longitude}}
+		Latitude {{pic.latitude}}
+		<img [src]="pic.image" *ngIf="pic.image" />
+
+	</div>
 </ion-content>

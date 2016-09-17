@@ -8,7 +8,7 @@ import { DataService } from '../../services/data.service';
 })
 export class Feed {
 
-	protected loadedPics: Array<string> = [];
+	protected loadedPics: Array<any> = [];
 
 	
 	constructor(public navCtrl: NavController, private data: DataService) {}
