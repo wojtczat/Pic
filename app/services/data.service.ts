@@ -48,12 +48,16 @@ export class DataService {
 	}
 
 	public sendPicture(image: string, pos: any){
+
 		let data = {
 			image: image,
 			longitude: pos.coords.longitude,
 			latitude: pos.coords.latitude,
 			time: Date.now()
 		}
+
+		console.log("Sending this...");
+		console.log(data);
 
 		let headers = new Headers();
         headers.append('Content-Type', 'application/json');
