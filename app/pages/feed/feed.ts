@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -10,7 +9,6 @@ export class Feed {
 
 	protected loadedPics: Array<any> = [];
 
-	
 	constructor(public navCtrl: NavController, private data: DataService) {}
 
 	private loadPics() : void {

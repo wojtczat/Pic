@@ -8,7 +8,7 @@ import { DataService } from '../../services/data.service';
 
 export class Upload {
 
-    doCamera(){
+    doCamera() {
 		    this.data.takePicture()
 	  }
 

@@ -64,6 +64,7 @@ export class DataService {
 	}
 
 	public getLocation(callback: any) {
+
 		console.log("Getting location...");
 		Geolocation.getCurrentPosition().then(pos => {
 			console.log("Got location!");
@@ -72,5 +73,6 @@ export class DataService {
 			console.log("Could not get location!");
 			console.log(reason);
 		});
+		
 	}
 }
