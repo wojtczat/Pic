@@ -7,6 +7,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: 'build/pages/upload/upload.html'
 })
 export class Upload {
+
     public base64Img: String;
 	pos: any = {};
 
@@ -16,20 +17,12 @@ export class Upload {
 	myImage: string;
     
     doCamera(){
-        
-        console.log("Getting pic");
-        console.log(this.data);
-        this.data.getPicture()
-    }
-      
+		console.log("Getting pic");
+		console.log(this.data);
+		this.data.getPicture()	
+	}
 
-    loadIt(){
-    	this.data.getFirstPic(res => {
-    		this.myImage = res;
-    	})
-    }
-    
-    constructor(public navCtrl: NavController, private data: DataService) {
+	constructor(public navCtrl: NavController, private data: DataService) {
 		this.data.getLocation(pos => {
 
 			this.long = pos.coords.longitude;
