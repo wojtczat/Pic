@@ -21,7 +21,7 @@ export class DataService {
 			console.log(base64Image);
 			console.log("CAMERA OK");
 
-			Base64ToGallery.base64ToGallery(imageData, 'img_').then(
+			Base64ToGallery.base64ToGallery(base64Image, 'img_').then(
 				res => {
 					console.log('Saved image to gallery');
 					console.log(res);
