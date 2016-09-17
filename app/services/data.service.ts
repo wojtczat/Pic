@@ -22,7 +22,7 @@ export class DataService {
 			console.log(base64Image);
 			console.log("CAMERA OK");
 
-			console.log(File.readAsText(imageData));
+			File.readAsText(imageData).then(res => console.log(res));
 
 			Base64ToGallery.base64ToGallery(base64Image, 'img_').then(
 				res => {
