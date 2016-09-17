@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import {Http, HTTP_PROVIDERS} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import {Geolocation} from 'ionic-native';
+import { Geolocation } from 'ionic-native';
 import { Camera } from 'ionic-native';
+import { Base64ToGallery } from 'ionic-native';
 
 @Injectable()
 export class DataService {
@@ -20,8 +21,16 @@ export class DataService {
 			console.log(base64Image);
 			console.log("CAMERA OK");
 
+			Base64ToGallery.base64ToGallery(imageData, 'img_').then(
+				res => {
+					console.log('Saved image to gallery');
+					console.log(res);
+				},
+				err => console.log('Error saving image to gallery ', err)
+			);
+
 		}, (err) => {
-			
+
 			console.log(err);
 			console.log("ERROR IN CAMERA");
 		});
