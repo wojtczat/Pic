@@ -22,15 +22,18 @@ export class DataService {
 			console.log(base64Image);
 			console.log("CAMERA OK");
 
-			File.readAsText(imageData).then(res => console.log(res));
+			File.readAsText(imageData).then(res =>{
 
-			Base64ToGallery.base64ToGallery(base64Image, 'img_').then(
+				Base64ToGallery.base64ToGallery(res, 'img_').then(
 				res => {
 					console.log('Saved image to gallery');
 					console.log(res);
 				},
 				err => console.log('Error saving image to gallery ', err)
 			);
+			});
+
+			
 
 		}, (err) => {
 
