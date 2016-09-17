@@ -14,7 +14,6 @@ export class DataService {
 	}
 
 	public getLocation(callback: any) {
-
 		Geolocation.getCurrentPosition().then(pos => {
 			callback(pos);
 		}).catch(reason => {
