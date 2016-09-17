@@ -24,7 +24,7 @@ export class Feed {
 
 				this.loadedPics.forEach( p => {
 					this.data.get(p, res => {
-						this.pictureContent[this.loadedPics.indexOf(p)] = res;
+						this.pictureContent[this.loadedPics.indexOf(p)] = res._body;
 					});
 				});
 
