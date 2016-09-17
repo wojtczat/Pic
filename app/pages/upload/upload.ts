@@ -12,6 +12,8 @@ export class Upload {
 
 	long = "";
 	lat = "";
+
+	myImage: string;
     
     doCamera(){
         
@@ -19,7 +21,13 @@ export class Upload {
         console.log(this.data);
         this.data.getPicture()
     }
-       
+      
+
+    loadIt(){
+    	this.data.getFirstPic(res => {
+    		this.myImage = res;
+    	})
+    }
     
     constructor(public navCtrl: NavController, private data: DataService) {
 		this.data.getLocation(pos => {

@@ -16,7 +16,19 @@ export class DataService {
 	base64Image: string;
 
 	constructor(private http: Http) {
-		//http.get('http://www.google.ca').subscribe(res => console.log(res));
+	}
+
+	public getFirstPic(callback: any) : void {
+
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+		this.http.post('http://45.79.169.174/api/gimme', {}, {
+			headers: headers
+		}).subscribe(res => {
+			console.log(res.json()[0]);
+			callback(res.json()[0].image);
+		});
 	}
 
 	public getPicture() {
@@ -44,8 +56,8 @@ export class DataService {
                 var data = {image:this.base64Image,longitude: this.pos.coords.longitude, latitude: this.pos.coords.latitude, time: Date.now()}
                 console.log(data);
                 var headers = new Headers();
-                 headers.append('Content-Type', 'application/json');
-                 var URL = "http://45.79.169.174/api/save";
+                headers.append('Content-Type', 'application/json');
+                var URL = "http://45.79.169.174/api/save";
                 
                 this.http.post(URL, data, {
                     headers: headers
