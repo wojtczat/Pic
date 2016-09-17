@@ -8,9 +8,9 @@
 
 	<button block round (click)="loadPics()">Load Feed</button>
 
-	<div *ngFor="let pic of loadedPics">
+	<div *ngFor="let pic of pictureContent">
 
-		<img [attr.href]="'http://45.79.169.174/' + pic" *ngIf="pic" />
+		<img [src]="pic" *ngIf="pic" />
 
 	</div>
 </ion-content>
