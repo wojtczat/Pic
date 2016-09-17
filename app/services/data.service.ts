@@ -1,11 +1,7 @@
-import { Injectable } 					from '@angular/core';
-import {Http, HTTP_PROVIDERS, Headers} 	from '@angular/http';
+import { Injectable } from '@angular/core';
+import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-
-import { Geolocation }					from 'ionic-native';
-import { Camera } 						from 'ionic-native';
-import { Base64ToGallery } 				from 'ionic-native';
-import { File } 						from 'ionic-native';
+import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
 
 @Injectable()
 export class DataService {
@@ -17,7 +13,7 @@ export class DataService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        let data = {
+        const data = {
         	longitude: pos.coords.longitude,
         	latitude: pos.coords.latitude,
         	time: Date.now()
@@ -26,7 +22,6 @@ export class DataService {
         this.http.post('http://45.79.169.174/api/query', data, {headers: headers}).subscribe(res => {
         	callback(res);
         });
-
 	}
 
 	public takePicture() {
@@ -36,12 +31,11 @@ export class DataService {
 
 			let base64Image = 'data:image/jpeg;base64,' + imageData;
 
-			this.getLocation(pos =>{
+			this.getLocation(pos => {
 				this.sendPicture(base64Image, pos);
 			});
-           
-		}, (err) => {
 
+		}, err => {
 			console.log("Could not take picture");
 			console.log(err);
 		});
@@ -49,7 +43,7 @@ export class DataService {
 
 	public sendPicture(image: string, pos: any){
 
-		let data = {
+		const data = {
 			image: image,
 			longitude: pos.coords.longitude,
 			latitude: pos.coords.latitude,
@@ -60,16 +54,17 @@ export class DataService {
 		console.log(data);
 
 		let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/json');
 
-        let URL = "http://45.79.169.174/api/save";
-        
-        this.http.post(URL, data, {
-            headers: headers
-        }).subscribe(res => {});
+    const URL = "http://45.79.169.174/api/save";
+
+    this.http.post(URL, data, {
+        headers: headers
+    }).subscribe(res => {});
 	}
 
 	public getLocation(callback: any) {
+
 		console.log("Getting location...");
 		Geolocation.getCurrentPosition().then(pos => {
 			console.log("Got location!");
@@ -78,5 +73,6 @@ export class DataService {
 			console.log("Could not get location!");
 			console.log(reason);
 		});
+		
 	}
 }
