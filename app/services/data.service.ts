@@ -13,6 +13,20 @@ export class DataService {
 		//http.get('http://www.google.ca').subscribe(res => console.log(res));
 	}
 
+	public getPicture() {
+		Camera.getPicture({}).then((imageData) => {
+
+			let base64Image = 'data:image/jpeg;base64,' + imageData;
+			console.log(base64Image);
+			console.log("CAMERA OK");
+
+		}, (err) => {
+			
+			console.log(err);
+			console.log("ERROR IN CAMERA");
+		});
+	}
+
 	public getLocation(callback: any) {
 
 
