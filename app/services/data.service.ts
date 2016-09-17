@@ -17,6 +17,9 @@ export class DataService {
 
 		Geolocation.getCurrentPosition().then(pos => {
 			callback(pos);
+		}).catch(reason => {
+			console.log("ERROR");
+			console.log(reason);
 		});
 	}
 }
