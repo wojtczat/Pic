@@ -3,7 +3,7 @@ import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
 
-import 'LZUTF8'; // for base64 compression
+//import 'LZUTF8'; // for base64 compression
 
 @Injectable()
 export class DataService {
