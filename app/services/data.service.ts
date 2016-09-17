@@ -10,15 +10,19 @@ import { File } from 'ionic-native';
 @Injectable()
 export class DataService {
 
+	base64Image: string;
+
 	constructor(private http: Http) {
 
 		//http.get('http://www.google.ca').subscribe(res => console.log(res));
 	}
 
 	public getPicture() {
-		Camera.getPicture({}).then((imageData) => {
+		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL}).then((imageData) => {
 
-			let base64Image = 'data:image/jpeg;base64,' + imageData;
+			this.base64Image = 'data:image/jpeg;base64,' + imageData;
+
+			/*
 			console.log(base64Image);
 			console.log("CAMERA OK");
 
@@ -32,6 +36,7 @@ export class DataService {
 				err => console.log('Error saving image to gallery ', err)
 			);
 			});
+			*/
 
 			
 
