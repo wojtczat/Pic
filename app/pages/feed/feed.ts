@@ -9,6 +9,8 @@ export class Feed {
 
 	protected loadedPics: Array<any> = [];
 
+	protected pictureContent: Array<any> = [];
+
 	constructor(public navCtrl: NavController, private data: DataService) {}
 
 	private loadPics() : void {
@@ -17,6 +19,18 @@ export class Feed {
 				console.log("query finished");
 				console.log(res.json());
 				this.loadedPics = res.json();
+
+				this.pictureContent = new Array<any>(this.loadedPics.length);
+
+				this.loadedPics.forEach( p => {
+					this.data.get(p, res => {
+						this.pictureContent[this.loadedPics.indexOf(p)] = res;
+					});
+				});
+
+				setTimeout(()=>{
+					console.log(this.loadedPics);
+				}, 5000);
 			})
 		})
 	}
