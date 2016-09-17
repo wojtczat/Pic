@@ -29,7 +29,7 @@ export class DataService {
 
 	}
 
-	public getPicture() {
+	public takePicture() {
 		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL}).then((imageData) => {
 
 			console.log("Took picture");
