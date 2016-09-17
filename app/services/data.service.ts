@@ -3,6 +3,8 @@ import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
 
+import 'LZUTF8'; // for base64 compression
+
 @Injectable()
 export class DataService {
 
@@ -27,7 +29,7 @@ export class DataService {
 	public get(name: string, callback: any) : void {
 
 		this.http.get("http://45.79.169.174/" + name).subscribe(res => {
-			callback(res.json());
+			callback(res);
 		});
 	}
 
@@ -37,6 +39,7 @@ export class DataService {
 			console.log("Took picture");
 
 			let base64Image = 'data:image/jpeg;base64,' + imageData;
+			//const compressedImage = LZUTF8.compress(base64Image);
 
 			this.getLocation(pos => {
 				this.sendPicture(base64Image, pos);
