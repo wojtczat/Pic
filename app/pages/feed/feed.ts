@@ -8,24 +8,10 @@ import { DataService } from '../../services/data.service';
 })
 export class Feed {
 
-	protected pos: any = {};
-
 	protected loadedPics: Array<string> = [];
 
 	
-	constructor(public navCtrl: NavController, private data: DataService) {
-		this.data.getLocation(pos => {
-			this.pos = pos;
-			console.log(pos);
-		});
-	}
-
-	ngOnInit() {
-		this.data.getLocation(pos => {
-			this.pos = pos;
-			this.loadPics();
-		})
-	}
+	constructor(public navCtrl: NavController, private data: DataService) {}
 
 	private loadPics() : void {
 		this.data.getLocation(pos => {
