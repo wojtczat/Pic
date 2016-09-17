@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, HTTP_PROVIDERS} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { Geolocation } from 'ionic-native';
+import {Geolocation} from 'ionic-native';
 import { Camera } from 'ionic-native';
 
 @Injectable()
