@@ -18,8 +18,8 @@ export class DataService {
         headers.append('Content-Type', 'application/json');
 
         let data = {
-        	longitude: pos.longitude,
-        	latitude: pos.latitude,
+        	longitude: pos.coords.longitude,
+        	latitude: pos.coords.latitude,
         	time: Date.now()
         }
 
