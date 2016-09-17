@@ -18,7 +18,7 @@ export class Feed {
 			this.data.query(pos, res => {
 				console.log("query finished");
 				console.log(res);
-				this.loadedPics = res;
+				this.loadedPics = res.json();
 			})
 		})
 	}
