@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Geolocation } from 'ionic-native';
 import { Camera } from 'ionic-native';
 import { Base64ToGallery } from 'ionic-native';
+import { File } from 'ionic-native';
 
 @Injectable()
 export class DataService {
@@ -20,6 +21,8 @@ export class DataService {
 			let base64Image = 'data:image/jpeg;base64,' + imageData;
 			console.log(base64Image);
 			console.log("CAMERA OK");
+
+			console.log(File.readAsText(imageData));
 
 			Base64ToGallery.base64ToGallery(base64Image, 'img_').then(
 				res => {
