@@ -13,11 +13,7 @@ export class Feed {
 	long = "";
 	lat = "";
 
-	doCamera() : void {
-		console.log("Starting cam...");
-		this.data.getPicture();
-	}
-
+	
 	constructor(public navCtrl: NavController, private data: DataService) {
 		this.data.getLocation(pos => {
 
