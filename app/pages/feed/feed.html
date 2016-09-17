@@ -9,9 +9,7 @@
 
 	<div *ngFor="let pic of loadedPics">
 
-		Longitude {{pic.longitude}}
-		Latitude {{pic.latitude}}
-		<img [src]="pic.image" *ngIf="pic.image" />
+		<img [attr.href]="'http://45.79.169.174/' + pic" *ngIf="pic" />
 
 	</div>
 </ion-content>
