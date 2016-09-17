@@ -15,7 +15,7 @@ export class Feed {
 		this.data.getLocation(pos => {
 			this.data.query(pos, res => {
 				console.log("query finished");
-				console.log(res);
+				console.log(res.json());
 				this.loadedPics = res.json();
 			})
 		})

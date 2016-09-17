@@ -24,6 +24,13 @@ export class DataService {
         });
 	}
 
+	public get(name: string, callback: any) : void {
+
+		this.http.get("http://45.79.169.174/" + name).subscribe(res => {
+			callback(res.json());
+		});
+	}
+
 	public takePicture() : void {
 		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL}).then((imageData) => {
 
