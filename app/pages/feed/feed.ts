@@ -10,8 +10,15 @@ export class Feed {
 
 	pos: any = {};
 
+	long = "";
+	lat = "";
+
 	constructor(public navCtrl: NavController, private data: DataService) {
 		this.data.getLocation(pos => {
+
+			this.long = pos.coords.longitude;
+			this.lat = pos.coords.latitude;
+
 			this.pos = pos;
 			console.log(pos);
 		});
