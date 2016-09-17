@@ -73,6 +73,6 @@ export class DataService {
 			console.log("Could not get location!");
 			console.log(reason);
 		});
-		
+
 	}
 }
