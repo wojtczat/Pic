@@ -17,7 +17,7 @@ export class TabsPage {
     // should be each tab's root Page
 
     this.tab2Root = Feed;
-     this.tab1Root = Upload;
+    this.tab1Root = Upload;
     this.tab3Root = SettingsComponent;
   }
 }
