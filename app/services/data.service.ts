@@ -24,7 +24,7 @@ export class DataService {
         });
 	}
 
-	public takePicture() {
+	public takePicture() : void {
 		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL}).then((imageData) => {
 
 			console.log("Took picture");
@@ -41,7 +41,7 @@ export class DataService {
 		});
 	}
 
-	public sendPicture(image: string, pos: any){
+	public sendPicture(image: string, pos: any) : void {
 
 		const data = {
 			image: image,
@@ -63,14 +63,14 @@ export class DataService {
     }).subscribe(res => {});
 	}
 
-	public getLocation(callback: any) {
+	public getLocation(callback: any) : void {
 
-		console.log("Getting location...");
+		console.log("Fetching location...");
 		Geolocation.getCurrentPosition().then(pos => {
-			console.log("Got location!");
+			console.log("Location found!");
 			callback(pos);
 		}).catch(reason => {
-			console.log("Could not get location!");
+			console.log("Could not find location!");
 			console.log(reason);
 		});
 
