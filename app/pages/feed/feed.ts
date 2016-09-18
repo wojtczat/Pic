@@ -23,7 +23,7 @@ export class Feed {
 
 		this.data.currentCommentName = name;
 
-
+		
 		this.data.getComments(this.data.currentCommentName, res => {
 			let modal = this.modalCtrl.create(CommentsModal, {comments: res.json(), name: this.data.currentCommentName});
 			modal.present();

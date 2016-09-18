@@ -26,6 +26,7 @@ export class DataService {
 			}).catch(reason => {
 				console.log("Could not find location!");
 				console.log(reason);
+				this.resetPos();
 			});
 		}, 0);
 
@@ -37,6 +38,7 @@ export class DataService {
 			}).catch(reason => {
 				console.log("Could not find location!");
 				console.log(reason);
+				this.resetPos();
 			});
 
 		}, 1000*60);
@@ -44,6 +46,32 @@ export class DataService {
 
 	ngOnInit() {
 	}
+
+	private resetPos() : void {
+		this.pos = {
+			coords: {
+				longitude: 0,
+				latitude: 0
+			}
+		};
+	}	
+
+	public getLocation(callback: any) : void {
+
+		if (this.pos.coords.longitude == 0 && this.pos.coords.latitude == 0){
+			Geolocation.getCurrentPosition().then(pos => {
+				this.pos = pos;
+				callback(pos);
+			}).catch(reason => {
+				console.log("Could not find location!");
+				console.log(reason);
+				this.resetPos();
+			});
+		} else {
+			callback(this.pos);
+		}
+	}
+    
 
 	public submitComment(name: string, comment: string, callback: any) : void {
 
@@ -169,10 +197,4 @@ export class DataService {
         headers: headers
     }).subscribe(res => {});
 	}
-
-	public getLocation(callback: any) : void {
-
-		callback(this.pos);
-	}
-    
 }
