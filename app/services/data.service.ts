@@ -97,7 +97,7 @@ export class DataService {
 							.then((imageData) => {
 
 			console.log("Took picture");
-
+            console.log(imageData);
 			let base64Image = 'data:image/jpeg;base64,' + imageData;
 
 			this.getLocation(pos => {
@@ -109,18 +109,12 @@ export class DataService {
 			console.log(err);
 		});
 	}
-    public getImage() : void {
+    /*public getImage() : void {
         ImagePicker.getPictures({quality: 50}).then((imageData) => {
-            /*var canvas = document.createElement('CANVAS');
-            var ctx = canvas.getContext('2d');
-            var dataURL;
-            ctx.height = imageData.height;
-            ctx.width = imageData.width;
-            ctx.drawImage(imageData,0,0);
-            dataURL = canvas.toDataURL();
+           
             
             let base64Image = 'data:image/jpeg;base64,' + imageData;
-            base64Image = dataURL;*/
+        });
             this.getLocation(pos => {
 				this.sendPictureGal(imageData, pos);
 			});
@@ -129,7 +123,7 @@ export class DataService {
 			console.log("Could not take picture");
 			console.log(err);
         });
-    }
+    }*/
 
 	public sendPicture(image: string, pos: any) : void {
 
@@ -178,4 +172,5 @@ export class DataService {
 
 		callback(this.pos);
 	}
+    
 }
