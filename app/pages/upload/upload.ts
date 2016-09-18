@@ -18,7 +18,7 @@ export class Upload {
     }*/
     
     public doGallery () : void {
-            this.data.getImage()
+            //this.data.getImage()
     }
 
 	constructor(public navCtrl: NavController, private data: DataService) {}
