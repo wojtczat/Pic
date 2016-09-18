@@ -14,9 +14,9 @@ export class Feed {
 
 	constructor(public navCtrl: NavController, private data: DataService) {}
 
-  ngOnInit() {
-    this.loadPics(null);
-  }
+	ngOnInit() {
+	this.loadPics(null);
+	}
 
 	private loadPics(e ?) : void {
 		this.data.getLocation(pos => {
@@ -27,15 +27,20 @@ export class Feed {
 
 				this.pictureContent = new Array<any>(this.loadedPics.length);
 
-        let i = 0;
-				this.loadedPics.forEach( p => {
-					this.data.get(p, res => {
-						this.pictureContent[this.loadedPics.indexOf(p)] = res._body;
-              i++;
+				let i = 0;
 
-              if (i == this.loadedPics.length && e != null){
-                  e.complete();
-              }
+				if (this.pictureContent.length == 0 && e != null){
+					e.complete();
+				}
+
+				this.loadedPics.forEach( p => {
+					this.data.get(p.name, r => {
+						this.pictureContent[this.loadedPics.indexOf(p)] = r._body;
+						i++;
+
+						if (i == this.loadedPics.length && e != null){
+						  e.complete();
+						}
 					});
 				});
 			})
