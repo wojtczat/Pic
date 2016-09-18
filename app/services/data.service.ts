@@ -13,9 +13,10 @@ export class DataService {
 		}
 	};
 
-	constructor(private http: Http) {}
+	constructor(private http: Http) {
+		
 
-	ngOnInit() {
+		console.log("Data service");
 
 		setTimeout(()=>{
 			console.log("Fetching location...");
@@ -38,6 +39,9 @@ export class DataService {
 			});
 
 		}, 1000*60);
+	}
+
+	ngOnInit() {
 	}
 
 	public query(pos: any, callback: any) : void {
