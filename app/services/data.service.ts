@@ -14,8 +14,7 @@ export class DataService {
 	};
 
 	constructor(private http: Http) {
-		
-
+	
 		console.log("Data service");
 
 		setTimeout(()=>{
@@ -42,6 +41,28 @@ export class DataService {
 	}
 
 	ngOnInit() {
+	}
+
+	public submitComment(name: string, comment: string, callback: any) : void {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+		this.http.post("http://45.79.169.174/api/comment", {name: name, comment: comment}, {headers: headers}).subscribe(res => {
+			callback(res);
+		})
+
+	}
+
+	public getComments(name: string, callback: any) : void {
+
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+		this.http.post("http://45.79.169.174/api/getcomments", {name: name}, {headers: headers}).subscribe(res => {
+			callback(res);
+		})
+
 	}
 
 	public query(pos: any, callback: any) : void {

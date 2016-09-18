@@ -15,7 +15,6 @@
   <!-- List of photos -->
 	<div *ngFor="let pic of picMetaData">
     <ion-card>
-
   	  <ion-item><p>{{pic.time | date:"MMMM dd yyyy, hh:mm" }}</p></ion-item>
 
     	<img [src]="pic.data" *ngIf="pic" />

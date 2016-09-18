@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Comments</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding overflow-scroll="true">
+
+  <!-- Refresher Pull Down Element -->
+  <ion-refresher (ionRefresh)="loadPics($event)">
+    <ion-refresher-content
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Add Comment Form -->
+  <ion-item>
+    <ion-label fixed>Add Comment</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+
+  <!-- List of comments -->
+  <!--
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+  -->
+
+</ion-content>
+
+<ion-footer>
+  <button (click)="closeModal()" style="border-radius:0;margin:0" block primary><ion-icon name="ion-chevron-left"></ion-icon>Back</button>
+</ion-footer>
