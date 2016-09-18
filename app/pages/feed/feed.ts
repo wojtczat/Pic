@@ -19,10 +19,16 @@ export class Feed {
 	   this.loadPics(null);
 	}
 
-  public showCommentsModal() {
-    let modal = this.modalCtrl.create(CommentsModal);
-    modal.present();
-  }
+	public showCommentsModal(name: string) {
+
+		this.data.currentCommentName = name;
+
+
+		this.data.getComments(this.data.currentCommentName, res => {
+			let modal = this.modalCtrl.create(CommentsModal, {comments: res.json(), name: this.data.currentCommentName});
+			modal.present();
+		})
+	}
 
 	private loadPics(e ?) : void {
 		this.data.getLocation(pos => {
@@ -46,6 +52,11 @@ export class Feed {
 						  e.complete();
 						}
 					});
+
+					p.numberOfComments = null;
+					this.data.getComments(p.name, r =>{
+						p.numberOfComments = r.json().length;
+					})
 				});
 			})
 		})

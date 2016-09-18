@@ -13,6 +13,8 @@ export class DataService {
 		}
 	};
 
+	currentCommentName: string = "";
+
 	constructor(private http: Http) {
 	
 		console.log("Data service");
