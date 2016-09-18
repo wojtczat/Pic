@@ -6,11 +6,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="upload">
- <ion-row style="margin-top:40%">
-     <ion-icon primary name="camera" (click)="doCamera()" style="font-size:90px"></ion-icon>
- </ion-row>
- <ion-row style="margin-top:5%">
-       <!--<button primary block (click)="doGallery()">UPLOAD FROM GALLERY</button>-->
- </ion-row>
+<ion-content>
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <ion-icon primary name="camera"
+              (click)="doCamera()"
+              style="max-width: 50%; font-size:200px; margin-top:35%">
+    </ion-icon>
+  </div>
 </ion-content>
