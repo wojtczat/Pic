@@ -34,7 +34,7 @@ export class DataService {
 	public takePicture() : void {
 		Camera.getPicture({	destinationType: Camera.DestinationType.DATA_URL,
 							allowEdit: true,
-							quality: 100,
+							quality: 50,
 							correctOrientation: true,
 							mediaType: Camera.MediaType.ALLMEDIA})
 							.then((imageData) => {
