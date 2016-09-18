@@ -32,7 +32,7 @@ export class DataService {
 	}
 
 	public takePicture() : void {
-		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL}).then((imageData) => {
+		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL, allowEdit: true, quality: 30}).then((imageData) => {
 
 			console.log("Took picture");
 
