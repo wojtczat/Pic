@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Comments</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding overflow-scroll="true">
+  <!-- Refresher Pull Down Element -->
+  <ion-refresher (ionRefresh)="loadPics($event)">
+    <ion-refresher-content
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- List of comments -->
+	<!--<div *ngFor="">
+  </div>-->
+
+</ion-content>
+<ion-footer>
+    <ion-row>
+          <button (click)="dismiss()" block primary><ion-icon name="ion-chevron-left"></ion-icon>Back</button>
+    </ion-row>
+</ion-footer>

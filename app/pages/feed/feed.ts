@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
+import { CommentsModal } from '../CommentsModal/CommentsModal';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -10,11 +11,18 @@ export class Feed {
 
 	protected picMetaData: Array<any> = [];
 
-	constructor(public navCtrl: NavController, private data: DataService) {}
+	constructor(public navCtrl: NavController,
+              private data: DataService,
+              public modalCtrl: ModalController) {}
 
 	ngOnInit() {
 	   this.loadPics(null);
 	}
+
+  public showCommentsModal() {
+    let modal = this.modalCtrl.create(CommentsModal);
+    modal.present();
+  }
 
 	private loadPics(e ?) : void {
 		this.data.getLocation(pos => {

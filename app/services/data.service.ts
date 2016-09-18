@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
+import { Geolocation, Camera, Base64ToGallery, File, ImagePicker } from 'ionic-native';
 
 @Injectable()
 export class DataService {
@@ -88,6 +88,20 @@ export class DataService {
 			console.log(err);
 		});
 	}
+    /*public getImage() : void {
+        ImagePicker.getPictures().then ((imageData) => {
+            console.log("Grabbed Picture");
+            let base64Image = 'data:image/jpeg;base64,' + imageData;
+            
+            this.getLocation(pos => {
+				this.sendPicture(base64Image, pos);
+			});
+
+		}, err => {
+			console.log("Could not take picture");
+			console.log(err);
+		});
+    }*/
 
 	public sendPicture(image: string, pos: any) : void {
 
