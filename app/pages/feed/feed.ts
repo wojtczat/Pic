@@ -16,6 +16,10 @@ export class Feed {
 	   this.loadPics(null);
 	}
 
+  public showCommentsModal() {
+    
+  }
+
 	private loadPics(e ?) : void {
 		this.data.getLocation(pos => {
 			this.data.query(pos, res => {
