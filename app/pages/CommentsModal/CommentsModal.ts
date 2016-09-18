@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { ModalController, ViewController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'build/pages/CommentsModal/CommentsModal.html'
@@ -7,10 +7,10 @@ import { NavController, ModalController } from 'ionic-angular';
 
 export class CommentsModal {
 
-	constructor() {}
+	constructor(public viewCtrl: ViewController) { }
 
-  dismiss() {
-    this.dismiss();
+  public closeModal() : void {
+    this.viewCtrl.dismiss();
   }
 
 }
