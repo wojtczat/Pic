@@ -7,6 +7,17 @@
 </ion-header>
 
 <ion-content padding class="upload">
-	<!--<img [src]="data.base64Image" *ngIf="data.base64Image" />-->
-	<button primary block round (click)="doCamera()"><ion-icon name="camera" item-left></ion-icon>Camera</button>
+
+  <ion-grid>
+      <ion-col></ion-col>
+      <ion-col>
+          <ion-icon name="camera" item-center style="font-size:90px"></ion-icon>
+      </ion-col>
+      <ion-col></ion-col>
+  </ion-grid>
+
+	<button primary block round (click)="doCamera()">
+    UPLOAD FROM GALLERY
+  </button>
+
 </ion-content>
