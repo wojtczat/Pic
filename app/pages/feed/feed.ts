@@ -17,6 +17,10 @@ export class Feed {
 
 	ngOnInit() {
 	   this.loadPics(null);
+
+	   setInterval(()=>{
+	   	console.log(this.picMetaData);
+	   }, 1000);
 	}
 
 	public showCommentsModal(name: string) {
@@ -52,6 +56,11 @@ export class Feed {
 						  e.complete();
 						}
 					});
+					
+					p.numberOfComments = null;
+					this.data.getComments(p.name, r =>{
+						p.numberOfComments = r.json().length;
+					})
 				});
 			})
 		})

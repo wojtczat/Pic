@@ -23,7 +23,7 @@
         <ion-col>
           <button (click)="showCommentsModal(pic.name)" primary clear small>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{pic.numberOfComments || "No"}} Comment(s)</div>
           </button>
         </ion-col>
       </ion-row>
