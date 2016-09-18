@@ -8,9 +8,7 @@ import { DataService } from '../../services/data.service';
 
 export class Feed {
 
-	protected loadedPics: Array<any> = [];
-
-	protected pictureContent: Array<any> = [];
+	protected picMetaData: Array<any> = [];
 
 	constructor(public navCtrl: NavController, private data: DataService) {}
 
@@ -18,27 +16,29 @@ export class Feed {
 	this.loadPics(null);
 	}
 
+	private ss(f) {
+		return new Date(f);
+	}
+
 	private loadPics(e ?) : void {
 		this.data.getLocation(pos => {
 			this.data.query(pos, res => {
 				console.log("query finished");
 				console.log(res.json());
-				this.loadedPics = res.json();
-
-				this.pictureContent = new Array<any>(this.loadedPics.length);
+				this.picMetaData = res.json();
 
 				let i = 0;
 
-				if (this.pictureContent.length == 0 && e != null){
+				if (this.picMetaData.length == 0 && e != null){
 					e.complete();
 				}
 
-				this.loadedPics.forEach( p => {
+				this.picMetaData.forEach( p => {
 					this.data.get(p.name, r => {
-						this.pictureContent[this.loadedPics.indexOf(p)] = r._body;
+						p.data = r._body;
 						i++;
 
-						if (i == this.loadedPics.length && e != null){
+						if (i == this.picMetaData.length && e != null){
 						  e.complete();
 						}
 					});
