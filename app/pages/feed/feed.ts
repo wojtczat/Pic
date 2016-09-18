@@ -16,8 +16,9 @@ export class Feed {
 	this.loadPics(null);
 	}
 
-	private ss(f) {
-		return new Date(f);
+	private formatTime(f) {
+		let d = new Date(f);
+		return d.getMonth() + " " + d.getDate() + " " + d.getHours() + ":" + d.getMinutes();
 	}
 
 	private loadPics(e ?) : void {

@@ -17,18 +17,10 @@
     <ion-card>
 
 	  <ion-item>
-	    <p>November 5, 2016</p>
+	    <p>{{formatTime(pic.time)}}</p>
 	  </ion-item>
 
   	<img [src]="pic.data" *ngIf="pic" />
-  <ion-row>
-    <ion-col>
-      <button primary clear small>
-        <ion-icon name="calendar"></ion-icon>
-        <div>{{ss(pic.time)}}</div>
-      </button>
-    </ion-col>
-  </ion-row>
   <ion-row>
     <ion-col>
       <button primary clear small>
