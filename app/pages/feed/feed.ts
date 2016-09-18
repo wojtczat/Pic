@@ -20,7 +20,8 @@ export class Feed {
 	}
 
   public showCommentsModal() {
-
+    let modal = this.modalCtrl.create(CommentsModal);
+    modal.present();
   }
 
 	private loadPics(e ?) : void {

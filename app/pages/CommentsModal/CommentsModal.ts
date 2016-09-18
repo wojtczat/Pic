@@ -9,4 +9,8 @@ export class CommentsModal {
 
 	constructor() {}
 
+  dismiss() {
+    this.dismiss();
+  }
+
 }
