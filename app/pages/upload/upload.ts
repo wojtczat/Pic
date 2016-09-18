@@ -12,5 +12,9 @@ export class Upload {
 		    this.data.takePicture()
 	  }
 
+    ngOnInit() {
+      this.doCamera();
+    }
+
 	constructor(public navCtrl: NavController, private data: DataService) {}
 }

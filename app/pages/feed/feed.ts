@@ -5,6 +5,7 @@ import { DataService } from '../../services/data.service';
 @Component({
   templateUrl: 'build/pages/feed/feed.html'
 })
+
 export class Feed {
 
 	protected loadedPics: Array<any> = [];
