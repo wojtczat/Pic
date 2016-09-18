@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar primary>
-    <ion-title>Feed</ion-title>
+    <ion-title>Feed {{data.pos.coords | json}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
 	<div *ngFor="let pic of picMetaData">
     <ion-card>
   	  <ion-item><p>{{pic.time | date:"MMMM dd yyyy, hh:mm" }}</p></ion-item>
-
+		<p>{{pic.pos | json}}</p>
     	<img [src]="pic.data" *ngIf="pic" />
 
       <ion-row>
