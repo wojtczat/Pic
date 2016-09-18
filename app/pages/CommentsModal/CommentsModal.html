@@ -30,7 +30,7 @@
   <!-- List of comments -->
   <ion-list>
     <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-      {{item}}
+        {{item}}
     </ion-item>
     <ion-item *ngIf="items.length == 0">
       No comments!
@@ -41,5 +41,5 @@
 </ion-content>
 
 <ion-footer>
-  <button (click)="closeModal()" style="border-radius:0;margin:0" block primary><ion-icon name="ion-chevron-left"></ion-icon>Back</button>
+  <button (click)="closeModal();" style="border-radius:0;margin:0" block primary><ion-icon name="ion-chevron-left"></ion-icon>Back</button>
 </ion-footer>
