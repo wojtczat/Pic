@@ -6,7 +6,12 @@ import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
 @Injectable()
 export class DataService {
 
-	pos: any = {};
+	pos: any = {
+		coords: {
+			longitude: 0,
+			latitude: 0
+		}
+	};
 
 	constructor(private http: Http) {}
 
