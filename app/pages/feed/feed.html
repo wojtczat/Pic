@@ -4,19 +4,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="feed">
+<ion-content padding overflow-scroll="true">
 
 	<!--<button block round (click)="loadPics()">Load Feed</button>-->
 
+  <!-- Refresher Pull Down Element -->
   <ion-refresher (ionRefresh)="loadPics($event)">
     <ion-refresher-content
       refreshingSpinner="circles">
     </ion-refresher-content>
   </ion-refresher>
-    	<div *ngFor="let pic of pictureContent">
 
-		<img [src]="pic" *ngIf="pic" />
+  <!-- List of photos -->
+	<div *ngFor="let pic of pictureContent">
+    <div style="padding:5px;border:1px solid rgb(191, 191, 191);
+                margin-bottom:10px;
+                border-radius: 2px;">
+      <img [src]="pic" *ngIf="pic" />
+    </div>
+   </div>
 
-	</div>
 </ion-content>
-
