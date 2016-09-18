@@ -13,12 +13,7 @@ export class Feed {
 	constructor(public navCtrl: NavController, private data: DataService) {}
 
 	ngOnInit() {
-	this.loadPics(null);
-	}
-
-	private formatTime(f) {
-		let d = new Date(f);
-		return d.getMonth() + " " + d.getDate() + " " + d.getHours() + ":" + d.getMinutes();
+	   this.loadPics(null);
 	}
 
 	private loadPics(e ?) : void {
