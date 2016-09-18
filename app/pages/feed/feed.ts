@@ -17,17 +17,13 @@ export class Feed {
 
 	ngOnInit() {
 	   this.loadPics(null);
-
-	   setInterval(()=>{
-	   	console.log(this.picMetaData);
-	   }, 1000);
 	}
 
 	public showCommentsModal(name: string) {
 
 		this.data.currentCommentName = name;
 
-		
+
 		this.data.getComments(this.data.currentCommentName, res => {
 			let modal = this.modalCtrl.create(CommentsModal, {comments: res.json(), name: this.data.currentCommentName});
 			modal.present();
@@ -56,7 +52,7 @@ export class Feed {
 						  e.complete();
 						}
 					});
-					
+
 					p.numberOfComments = null;
 					this.data.getComments(p.name, r =>{
 						p.numberOfComments = r.json().length;

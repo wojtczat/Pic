@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding overflow-scroll="true">
+<ion-content overflow-scroll="true">
 
   <!-- Refresher Pull Down Element -->
   <ion-refresher (ionRefresh)="updateComments($event)">
@@ -14,11 +14,18 @@
   </ion-refresher>
 
   <!-- Add Comment Form -->
-  <ion-item>
-    <ion-label fixed>Add Comment</ion-label>
-    <ion-input type="text"[(ngModel)]="commentBox"></ion-input>
-  </ion-item>
-    <button (click)="addComment()">Add comment</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-80>
+        <ion-item>
+          <ion-input type="text"[(ngModel)]="commentBox" placeholder="New Comment"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col width-20>
+        <button (click)="addComment()"><ion-icon name="send"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <!-- List of comments -->
   <ion-list>
@@ -29,7 +36,7 @@
       No comments!
     </ion-item>
   </ion-list>
-  
+
 
 </ion-content>
 
