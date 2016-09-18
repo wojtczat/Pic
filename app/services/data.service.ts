@@ -16,7 +16,7 @@ export class DataService {
 	currentCommentName: string = "";
 
 	constructor(private http: Http) {
-	
+
 		console.log("Data service");
 
 		setTimeout(()=>{
@@ -54,7 +54,7 @@ export class DataService {
 				latitude: 0
 			}
 		};
-	}	
+	}
 
 	public getLocation(callback: any) : void {
 
@@ -71,12 +71,12 @@ export class DataService {
 			callback(this.pos);
 		}
 	}
-    
+
 
 	public submitComment(name: string, comment: string, callback: any) : void {
 
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
 		this.http.post("http://45.79.169.174/api/comment", {name: name, comment: comment}, {headers: headers}).subscribe(res => {
 			callback(res);
@@ -97,18 +97,18 @@ export class DataService {
 
 	public query(pos: any, callback: any) : void {
 
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+	  let headers = new Headers();
+	  headers.append('Content-Type', 'application/json');
 
-        const data = {
-        	longitude: pos.coords.longitude,
-        	latitude: pos.coords.latitude,
-        	time: Date.now()
-        }
+	  const data = {
+	  	longitude: pos.coords.longitude,
+	  	latitude: pos.coords.latitude,
+	  	time: Date.now()
+	  }
 
-        this.http.post('http://45.79.169.174/api/query', data, {headers: headers}).subscribe(res => {
-        	callback(res);
-        });
+	  this.http.post('http://45.79.169.174/api/query', data, {headers: headers}).subscribe(res => {
+	  	callback(res);
+	  });
 	}
 
 	public get(name: string, callback: any) : void {
@@ -141,8 +141,8 @@ export class DataService {
 	}
     /*public getImage() : void {
         ImagePicker.getPictures({quality: 50}).then((imageData) => {
-           
-            
+
+
             let base64Image = 'data:image/jpeg;base64,' + imageData;
         });
             this.getLocation(pos => {
