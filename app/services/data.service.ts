@@ -32,7 +32,12 @@ export class DataService {
 	}
 
 	public takePicture() : void {
-		Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL, allowEdit: true, quality: 1, mediaType: Camera.MediaType.ALLMEDIA, encodingType: Camera.EncodingType.PNG}).then((imageData) => {
+		Camera.getPicture({	destinationType: Camera.DestinationType.DATA_URL,
+							allowEdit: true,
+							quality: 100,
+							correctOrientation: true,
+							mediaType: Camera.MediaType.ALLMEDIA})
+							.then((imageData) => {
 
 			console.log("Took picture");
 
