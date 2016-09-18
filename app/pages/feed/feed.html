@@ -13,32 +13,23 @@
   </ion-refresher>
 
   <!-- List of photos -->
-	<div *ngFor="let pic of pictureContent">
+	<div *ngFor="let pic of picMetaData">
     <ion-card>
 
-  <ion-item>
-    <p>November 5, 2016</p>
-  </ion-item>
+  	  <ion-item><p>{{pic.time | date:"MMMM dd yyyy, hh:mm" }}</p></ion-item>
 
-  <img [src]="pic" *ngIf="pic" />
+    	<img [src]="pic.data" *ngIf="pic" />
 
-  <ion-row>
-    <ion-col>
-      <button primary clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
-    </ion-col>
-  </ion-row>
+      <ion-row>
+        <ion-col>
+          <button primary clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+      </ion-row>
 
-</ion-card>
-
-  <!--
-   <ion-card>
-    <ion-card-content>
-        <img [src]="pic" *ngIf="pic" />
-    </ion-card-content>
     </ion-card>
-  -->
+
    </div>
 </ion-content>
