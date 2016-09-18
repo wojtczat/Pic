@@ -6,7 +6,34 @@ import { Geolocation, Camera, Base64ToGallery, File } from 'ionic-native';
 @Injectable()
 export class DataService {
 
+	pos: any = {};
+
 	constructor(private http: Http) {}
+
+	ngOnInit() {
+
+		setTimeout(()=>{
+			console.log("Fetching location...");
+			Geolocation.getCurrentPosition().then(pos => {
+				this.pos = pos;
+			}).catch(reason => {
+				console.log("Could not find location!");
+				console.log(reason);
+			});
+		}, 0);
+
+		setInterval(()=>{
+
+			console.log("Fetching location...");
+			Geolocation.getCurrentPosition().then(pos => {
+				this.pos = pos;
+			}).catch(reason => {
+				console.log("Could not find location!");
+				console.log(reason);
+			});
+
+		}, 1000*60);
+	}
 
 	public query(pos: any, callback: any) : void {
 
@@ -77,14 +104,6 @@ export class DataService {
 
 	public getLocation(callback: any) : void {
 
-		console.log("Fetching location...");
-		Geolocation.getCurrentPosition().then(pos => {
-			console.log("Location found!");
-			callback(pos);
-		}).catch(reason => {
-			console.log("Could not find location!");
-			console.log(reason);
-		});
-
+		callback(this.pos);
 	}
 }
