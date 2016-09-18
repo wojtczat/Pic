@@ -6,11 +6,17 @@
 
 <ion-content padding class="feed">
 
-	<button block round (click)="loadPics()">Load Feed</button>
+	<!--<button block round (click)="loadPics()">Load Feed</button>-->
 
-	<div *ngFor="let pic of pictureContent">
+  <ion-refresher (ionRefresh)="loadPics($event)">
+    <ion-refresher-content
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+    	<div *ngFor="let pic of pictureContent">
 
 		<img [src]="pic" *ngIf="pic" />
 
 	</div>
 </ion-content>
+
