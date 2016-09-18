@@ -29,7 +29,7 @@
 
   <!-- List of comments -->
   <ion-list>
-    <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+    <ion-item *ngFor="let item of items" (click)="itemSelected(item)" text-wrap>
       {{item}}
     </ion-item>
     <ion-item *ngIf="items.length == 0">
