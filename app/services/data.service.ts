@@ -111,20 +111,27 @@ export class DataService {
 			console.log(err);
 		});
 	}
-    /*public getImage() : void {
-        ImagePicker.getPictures().then ((imageData) => {
-            console.log("Grabbed Picture");
-            let base64Image = 'data:image/jpeg;base64,' + imageData;
+    public getImage() : void {
+        ImagePicker.getPictures({quality: 50}).then((imageData) => {
+            /*var canvas = document.createElement('CANVAS');
+            var ctx = canvas.getContext('2d');
+            var dataURL;
+            ctx.height = imageData.height;
+            ctx.width = imageData.width;
+            ctx.drawImage(imageData,0,0);
+            dataURL = canvas.toDataURL();
             
+            let base64Image = 'data:image/jpeg;base64,' + imageData;
+            base64Image = dataURL;*/
             this.getLocation(pos => {
-				this.sendPicture(base64Image, pos);
+				this.sendPictureGal(imageData, pos);
 			});
 
 		}, err => {
 			console.log("Could not take picture");
 			console.log(err);
-		});
-    }*/
+        });
+    }
 
 	public sendPicture(image: string, pos: any) : void {
 
@@ -142,6 +149,27 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
 
     const URL = "http://45.79.169.174/api/save";
+
+    this.http.post(URL, data, {
+        headers: headers
+    }).subscribe(res => {});
+	}
+    public sendPictureGal(image: string, pos: any) : void {
+
+		const data = {
+			image: image,
+			longitude: pos.coords.longitude,
+			latitude: pos.coords.latitude,
+			time: Date.now()
+		}
+
+		console.log("Sending this...");
+		console.log(data);
+
+		let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const URL = "http://45.79.169.174/api/saveGal";
 
     this.http.post(URL, data, {
         headers: headers
